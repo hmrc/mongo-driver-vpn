@@ -28,6 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.customize ["modifyvm", :id, "--cpus", "2", "--memory", "6144"]
       end
       node.vm.synced_folder "..", "/home/vagrant/workspace"
+      node.vm.provision "shell", path: "scripts/provision.sh"
     end
   end
 end
