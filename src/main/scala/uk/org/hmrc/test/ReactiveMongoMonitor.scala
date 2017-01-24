@@ -17,7 +17,9 @@ object ReactiveMongoMonitor extends App{
 
   val driver = new reactivemongo.api.MongoDriver
 
-  val connection = driver.connection(List("10.16.30.1:27017","10.16.31.1:27017","10.16.32.1:27017"))
+  val connection = driver.connection(List(//"localhost"
+    "10.16.30.1:27017","10.16.31.1:27017","10.16.32.1:27017"
+  ))
 
   def documentGenerator = BSONDocument(
     "something" -> Random.nextString(7)
@@ -28,9 +30,7 @@ object ReactiveMongoMonitor extends App{
 
     writeRes.onComplete { // Dummy callbacks
       case Failure(e) => e.printStackTrace()
-      case Success(writeResult) =>
-
-        print(".")
+      case Success(writeResult) => print(" "+writeResult)
     }
 
     writeRes.map(_ => {}) // in this example, do nothing with the success
@@ -44,7 +44,7 @@ object ReactiveMongoMonitor extends App{
 
   while (true)  {
     insert(collection, documentGenerator)
-    Thread.sleep(1000)
+    Thread.sleep(5000)
   }
 
 }
