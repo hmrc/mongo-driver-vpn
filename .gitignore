@@ -27,3 +27,7 @@ test-result
 tmp
 .idea_modules
 .vagrant
+
+!/.project/build.properties
+!/.project/plugins.sbt`
+
