@@ -4,6 +4,8 @@ import reactivemongo.api.MongoConnection
 import reactivemongo.api.collections.bson.BSONCollection
 import reactivemongo.api.commands.WriteResult
 import reactivemongo.bson.BSONDocument
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 
 import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Random, Success}
