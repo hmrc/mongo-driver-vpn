@@ -1,1 +1,8 @@
-Some pre-canned commands and files when running a mongo cluster locally, to go with https://gist.github.com/beyond-code-github/0983eb77a5a9913981b9
+Install vagrant and virtualbox to your host.
+
+Run initAll.sh .
+
+From now you can start the test.
+ 
+ `sbt run` on mongo2
+ `sudo ipsec stop/start` on mongo to drop the connections
