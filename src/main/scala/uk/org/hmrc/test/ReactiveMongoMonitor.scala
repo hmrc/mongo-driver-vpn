@@ -2,11 +2,11 @@ package uk.org.hmrc.test
 
 import reactivemongo.api.MongoConnection
 import reactivemongo.api.collections.bson.BSONCollection
-import reactivemongo.api.commands.WriteResult
+import reactivemongo.api.commands.{DefaultWriteResult, WriteResult}
 import reactivemongo.bson.BSONDocument
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
-
 import scala.concurrent.{Await, Future}
 import scala.util.{Failure, Random, Success}
 
@@ -30,7 +30,11 @@ object ReactiveMongoMonitor extends App{
 
     writeRes.onComplete { // Dummy callbacks
       case Failure(e) => e.printStackTrace()
-      case Success(writeResult) => print(" "+writeResult)
+      case Success(writeResult) =>
+        if(DefaultWriteResult(true,1,List(),None,None,None) == writeRes)
+          print(".")
+        else
+          print(" "+writeResult)
     }
 
     writeRes.map(_ => {}) // in this example, do nothing with the success
