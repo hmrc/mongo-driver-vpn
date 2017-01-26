@@ -3,7 +3,7 @@ This project is an prepared testing enviroment to test the bugfix of zombie conn
 
 The vagrant and virtualbox are required on the host. (I had to intall newer versions that were on default Ubuntu repos Jan 2017)
 
-Run `initAll.sh` to prepare VMs setup. Will take more than 10 minutes.
+Run `initAll.sh` to prepare VMs setup. Will take more time than 10 minutes. ~4GB disk, ~6GB RAM required
 
 FYI: mongo, mongo2, mongo3 are the names of VMs. Mongo3 is an mongo arbiter. VPNs are between all nodes. IPs that mongo uses:
 `mongo`:10.16.30.1 ; `mongo2`:10.16.31.1 ; `mongo3`:10.16.32.1 . Mongos port: 27017. Primary is initially on the `mongo` VM. Mongo client app is on `mongo2`.
@@ -30,4 +30,4 @@ From now you can start the test.
 ```
  Difference in running with those should be the time of connection hanging.
  
- To delete all VMs type `vagrant destroy -f`. Do it before you delete the Vagrant file.
+ To delete all VMs type `vagrant destroy -f`. WARNING: Do it before you delete the vagrant files.
