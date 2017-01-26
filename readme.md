@@ -29,3 +29,5 @@ From now you can start the test.
    //ProjectRef(uri("https://github.com/opetch/ReactiveMongo.git#zombies"), "ReactiveMongo")
 ```
  Difference in running with those should be the time of connection hanging.
+ 
+ To delete all VMs type `vagrant destroy -f`. Do it before you delete the Vagrant file.
