@@ -25,13 +25,16 @@ object ReactiveMongoMonitor extends App{
     "something" -> Random.nextString(7)
   )
 
+  val correctResponse = DefaultWriteResult(true,1,List(),None,None,None)
+  println(s"A correct response is: $correctResponse. Any printed '.' signals such response. Any difference will be printed.")
+
   def insert(coll: BSONCollection, doc: BSONDocument): Future[Unit] = {
     val writeRes: Future[WriteResult] = coll.insert(doc)
 
     writeRes.onComplete { // Dummy callbacks
       case Failure(e) => e.printStackTrace()
       case Success(writeResult) =>
-        if(DefaultWriteResult(true,1,List(),None,None,None) == writeRes)
+        if(correctResponse == writeResult)
           print(".")
         else
           print(" "+writeResult)
