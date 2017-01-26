@@ -13,14 +13,14 @@ From now you can start the test.
  
  `sbt run` on `mongo2` VM in `mongo-driver-vpn` directory. FYI: to log on the VM type `vagrant ssh mongo2`.
  
- `sudo ipsec stop/start` at `mongo` VM to drop the connections. 
+ `sudo ipsec stop/start` at `mongo` VM to drop the connections. After that the primary will migrate to the `mongo2` node.
  
  
  To reset the mongo cluster:
  - enable vpn on `mongo`
  - disable vpn on `mongo2`
  now the primary should migrate back to `mongo`
- - enable back the vpn on `mongo2`
+ - enable back the vpn on `mongo2` (after few seconds)
  
  
  To switch between reactive-mongo versions switch comments between lines in file build.sbt":
