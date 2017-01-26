@@ -1,7 +1,7 @@
 This project is an prepared testing enviroment to test the bugfix of zombie connection after event: "primary disappears".``
 
 
-The vagrant and virtualbox are required on the host.
+The vagrant and virtualbox are required on the host. (I had to intall newer versions that were on Ubuntu repos Jan 2017)
 
 Run `initAll.sh` to prepare VMs setup. Will take more than 10 minutes.
 
