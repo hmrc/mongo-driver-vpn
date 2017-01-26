@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       node.vm.network "private_network", ip: host_config['ip_address2'],
         virtualbox__intnet: host
       node.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--cpus", "2", "--memory", "6144"]
+        vb.customize ["modifyvm", :id, "--cpus", "2", "--memory", "2000"]
       end
       node.vm.synced_folder "..", "/home/vagrant/workspace"
       node.vm.provision "shell", path: "scripts/provision.sh"
