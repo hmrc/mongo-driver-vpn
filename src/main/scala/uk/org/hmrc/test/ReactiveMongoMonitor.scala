@@ -48,7 +48,7 @@ object ReactiveMongoMonitor extends App{
 
   while (true)  {
     insert(collection, documentGenerator)
-    Thread.sleep(5000)
+    Thread.sleep(100)
   }
 
 }
